@@ -13,9 +13,23 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
 from django.urls import path
+from chat.views import *
+from chat.consumers import ChatConsumer
+from django.contrib import admin
 
+
+# URL patterns
 urlpatterns = [
+    path('', HomeView.as_view(), name='home'),
     path('admin/', admin.site.urls),
+    path('chat/', ChatRoomView.as_view(), name='chat_room'),
+    path('registration/', RegistrationView.as_view(), name='registration'),
+    path('login/', LoginView.as_view(), name='login'),
+    path('password_reset/', PasswordResetView.as_view(), name='password_reset')
+]
+
+# WebSocket URL routing
+websocket_urlpatterns = [
+    path('ws/chat_room/', ChatConsumer.as_asgi()),
 ]

@@ -1,0 +1,3 @@
+channels
+django
+psycopg2
