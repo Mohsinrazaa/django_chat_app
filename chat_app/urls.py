@@ -16,13 +16,17 @@ Including another URLconf
 from django.urls import path
 from chat.views import *
 from chat.consumers import ChatConsumer
+from django.contrib import admin
+
 
 # URL patterns
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
+    path('admin/', admin.site.urls),
     path('chat/', ChatRoomView.as_view(), name='chat_room'),
     path('registration/', RegistrationView.as_view(), name='registration'),
     path('login/', LoginView.as_view(), name='login'),
+    path('password_reset/', PasswordResetView.as_view(), name='password_reset')
 ]
 
 # WebSocket URL routing

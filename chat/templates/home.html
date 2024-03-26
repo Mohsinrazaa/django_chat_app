@@ -1,4 +1,4 @@
-<!-- chat/templates/home.html -->
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +10,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('YOUR_IMAGE_URL');
+            background-image: url('/static/img/bg_img.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -80,14 +80,10 @@
                 This is a simple chat application built with Django For Assessment.
             </p>
             <p>
+                
                 <a href="{% url 'login' %}">Login</a> | <a href="{% url 'registration' %}">Register</a>
             </p>
         </div>
-    </div>
-    <div class="footer">
-        <p>
-            Created by Mohsin Raza
-        </p>
     </div>
 </body>
 </html>
